@@ -1,0 +1,8 @@
+# Change directory to project's dir.
+alias szdir="cd ~/Documents/Code/PaP/SietZdravia"
+
+# Run current Remix project.
+alias szdev="szdir && npm run dev"
+
+# Access project's Postgres database in command-line, ready for query
+alias szdb="docker exec -it $(docker ps | grep sietzdravia-postgres | awk '{    print $1}') psql -U postgres"

@@ -1,0 +1,22 @@
+# Access school server, ssh pass is stored in ~/.ssh/authorized_keys
+# and it needs to be pasted into server's ssh config
+alias frios2="ssh blazek10@frios2.fri.uniza.sk -p 10022"
+
+# Change directory to school project
+alias fridir="cd ~/Documents/Code/fri-uniza-laravel"
+
+# Start this docker
+alias friup="fridir && docker compose up -d"
+
+# Stop this docker
+alias fristop="docker ps --filter name=\"portal-fri-*\" --filter status=runn    ing -aq | xargs docker stop"
+
+# Open terminal of school project ready to start React app (command needs to be written manually)
+fridev() {                                                                    1     fridir
+        container_id=$(docker ps | grep portal-fri-app | awk '{print $1}')
+        if [ -n "$container_id" ]; then
+		docker exec -it "$container_id" /bin/bash
+	else
+		echo "No running container found for portal-app."
+	fi
+}
