@@ -1,0 +1,44 @@
+#!/bin/bash
+#
+# > shmu
+# Downloads current meteogram for Zilina, Slovakia.
+
+# save current location
+pushd
+
+# move to correct location
+cd /tmp
+mkdir shmu-temp &> /dev/null
+cd shmu-temp
+
+# prepare required parts of link
+CITY_ID=31920
+DATE_FORMAT=$(date '+%Y%m%d')
+HOUR_FORMAT=$(date '+%H')
+HOUR_TYPE=$(printf '%02d' $((($HOUR_FORMAT/6-1)*6)))
+
+# paste them into one variable
+PARAMS=${CITY_ID}-${DATE_FORMAT}-${HOUR_TYPE}00
+
+# SHMU link
+SHMU_LINK=https://www.shmu.sk/data/datanwp/v2/meteogram/al-meteogram_$PARAMS-nwp-.png
+
+# create forecast image URL
+FILENAME=$PARAMS.png
+
+# download forecast image
+curl $SHMU_LINK -so $FILENAME
+
+# open image in system's default preview
+open $FILENAME
+
+# revert location
+popd
+
+# TODO:
+# 1. add options to choose from
+#	a. city
+#	b. hour type
+#	c. meteogram type
+# 2. find db with citites and theirs ID
+# 3. open multiple files

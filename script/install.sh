@@ -1,21 +1,40 @@
-#!/usr/bin/env bash
+#!/bin/bash
+#
+# > chmod +x install.sh
+# > ./install.sh
+# Adds aliases into .zsh/.bashrc
+# and creates symbolic links to bin.
 
-cd "$(dirname "$0")/.."
-DOTFILES_DIR=$(pwd -P)
+set -e
 
-ALIAS_DIR="$DOTFILES_DIR/script/alias.sh"
+# load variables
+source ./config.sh
 
-echo "Append aliases into config file:"
-if [[ -f "$ALIAS_DIR" ]]; then
-    if [[ -f "$HOME/.bashrc" ]]; then
-        echo "source $ALIAS_DIR" >> "$HOME/.bashrc"
-        echo "✅ Aliases were appended into .bashrc"
-    fi
-    if [[ -f "$HOME/.zshrc" ]]; then
-        echo "source $ALIAS_DIR" >> "$HOME/.zshrc"
-        echo "✅ Aliases were appended into .zshrc"
-    fi
-else
-    echo "❌ Main alias file was not found!"
+# remove old aliases
+bash "$DOTFILES_DIR"/script/remove_alias.sh
+
+# install new aliases
+bash "$DOTFILES_DIR"/script/install_alias.sh
+
+# check if exists target bin dir
+if [ ! -d "$TARGET_BIN_DIR" ]; then
+    echo "⚙️  Creating dir: $TARGET_BIN_DIR"
+    mkdir -p "$TARGET_BIN_DIR"
 fi
 
+# link bin files
+for file in "$BIN_DIR"/*; do
+	# get full path of file
+	filename=$(basename "$file")
+
+#	echo "⚙️  Creating sym link for $filename"
+#	ln -sf "$file" "$TARGET_BIN_DIR/$filename"
+done
+
+#echo "✅ Install of bin files done."
+
+if [[ ":$PATH:" != *":$TARGET_BIN_DIR:"* ]]; then
+#	echo $TARGET_BIN_DIR	
+# export PATH="$TARGET_BIN_DIR:$PATH"
+#	echo "✅ dir added into PATH"
+fi
