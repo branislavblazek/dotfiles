@@ -4,7 +4,7 @@
 # Downloads current meteogram for Zilina, Slovakia.
 
 # save current location
-pushd
+pushd .
 
 # move to correct location
 cd /tmp

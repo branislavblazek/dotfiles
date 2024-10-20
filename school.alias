@@ -12,7 +12,7 @@ alias friup="fridir && docker compose up -d"
 alias fristop="docker ps --filter name=\"portal-fri-*\" --filter status=runn    ing -aq | xargs docker stop"
 
 # Open terminal of school project ready to start React app (command needs to be written manually)
-fridev() {                                                                    1     fridir
+fridev() {
         container_id=$(docker ps | grep portal-fri-app | awk '{print $1}')
         if [ -n "$container_id" ]; then
 		docker exec -it "$container_id" /bin/bash

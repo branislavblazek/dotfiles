@@ -15,7 +15,7 @@ elif [[ -f "$HOME/.zshrc" ]]; then
 fi
 
 # where bin files are located
-BIN_DIR="$DOTFILES_DIR/bin"
+export BIN_DIR="$DOTFILES_DIR/bin"
 
 # where to link bin files
-TARGET_BIN_DIR="$HOME/bin"
+export TARGET_BIN_DIR="$HOME/bin"

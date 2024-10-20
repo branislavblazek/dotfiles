@@ -14,27 +14,16 @@ source ./config.sh
 bash "$DOTFILES_DIR"/script/remove_alias.sh
 
 # install new aliases
-bash "$DOTFILES_DIR"/script/install_alias.sh
+bash "$DOTFILES_DIR"/script/include_alias.sh
 
-# check if exists target bin dir
-if [ ! -d "$TARGET_BIN_DIR" ]; then
-    echo "⚙️  Creating dir: $TARGET_BIN_DIR"
-    mkdir -p "$TARGET_BIN_DIR"
-fi
+# link files
+bash "$DOTFILES_DIR"/script/link_files.sh
 
-# link bin files
-for file in "$BIN_DIR"/*; do
-	# get full path of file
-	filename=$(basename "$file")
+# remove PATH update
+bash "$DOTFILES_DIR"/script/remove_path.sh
 
-#	echo "⚙️  Creating sym link for $filename"
-#	ln -sf "$file" "$TARGET_BIN_DIR/$filename"
-done
+# include PATH update
+bash "$DOTFILES_DIR"/script/include_path.sh
 
-#echo "✅ Install of bin files done."
-
-if [[ ":$PATH:" != *":$TARGET_BIN_DIR:"* ]]; then
-#	echo $TARGET_BIN_DIR	
-# export PATH="$TARGET_BIN_DIR:$PATH"
-#	echo "✅ dir added into PATH"
-fi
+echo ""
+echo "✅ Install of bin files done."
