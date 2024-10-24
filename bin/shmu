@@ -4,7 +4,7 @@
 # Downloads current meteogram for Zilina, Slovakia.
 
 # save current location
-pushd .
+pushd . &> /dev/null
 
 # move to correct location
 cd /tmp
@@ -33,7 +33,7 @@ curl $SHMU_LINK -so $FILENAME
 open $FILENAME
 
 # revert location
-popd
+popd &> /dev/null
 
 # TODO:
 # 1. add options to choose from
