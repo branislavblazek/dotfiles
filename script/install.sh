@@ -7,8 +7,10 @@
 
 set -e
 
+BASE_DIR=$(dirname "$0")
+
 # load variables
-source ./config.sh
+source "$BASE_DIR/config.sh"
 
 # check alias
 bash "$DOTFILES_DIR"/script/check_alias.sh
