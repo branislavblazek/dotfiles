@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#
+# > git-fast ["Some commit message"]
+# git add, commit, push in one command
+
+# save current branch name
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+# create commit message (used if user not entered $1)
+human_branch_title=$(echo $current_branch | sed 's/-/ /g;s/ bug / [bug] /;s/ reopened / [reopened] /')
+
+# first command
+git add *
+
+# second command
+if [ -z "$1" ]
+then
+	git commit -m $human_branch_title
+else
+	git commit -m $1
+fi
+
+# third command
+git push --set-upstream origin $current_branch

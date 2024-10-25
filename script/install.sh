@@ -10,20 +10,11 @@ set -e
 # load variables
 source ./config.sh
 
-# remove old aliases
-bash "$DOTFILES_DIR"/script/remove_alias.sh
-
-# install new aliases
-bash "$DOTFILES_DIR"/script/include_alias.sh
+# check alias
+bash "$DOTFILES_DIR"/script/check_alias.sh
 
 # link files
 bash "$DOTFILES_DIR"/script/link_files.sh
 
-# remove PATH update
-bash "$DOTFILES_DIR"/script/remove_path.sh
-
-# include PATH update
-bash "$DOTFILES_DIR"/script/include_path.sh
-
-echo ""
-echo "✅ Install of bin files done."
+# check path
+bash "$DOTFILES_DIR"/script/check_path.sh

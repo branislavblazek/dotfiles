@@ -1,0 +1,14 @@
+# Checkout to dev branch
+alias git-cd="git checkout dev"
+
+# Checkout to new branch
+alias git-cb="git checkout -b"
+
+# Rebase current branch agains dev
+alias git-rbd="git rebase dev"
+
+# Continue in rebasing
+alias git-rc="git rebase --continue"
+
+# Abort current rebase
+alias git-ra="git rebase --abort"
