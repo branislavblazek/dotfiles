@@ -1,0 +1,2 @@
+# simple cls to clear terminal screen
+alias cls="clear"
