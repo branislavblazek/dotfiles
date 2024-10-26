@@ -15,7 +15,7 @@ git add *
 # second command
 if [ -z "$1" ]
 then
-	git commit -m $human_branch_title
+	git commit -m "$human_branch_title"
 else
 	git commit -m "$1"
 fi
