@@ -1,5 +1,5 @@
 # print current branch name
-alias git-name="git branch --show-current"
+alias git-b="git branch --show-current"
 
 # Checkout to dev branch
 alias git-cd="git checkout dev"
