@@ -20,5 +20,10 @@ else
 	git commit -m "$1"
 fi
 
-# third command
-git push --set-upstream origin $current_branch
+# create MR if $1 not set
+if [ -z "$1" ]
+then
+	git push -o merge_request.create origin "$current_branch"	
+else
+	git push --set-upstream origin "$current_branch"
+fi

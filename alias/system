@@ -1,2 +1,5 @@
+# shorthand for copy into clipboard
+alias cb="pbcopy"
+
 # simple cls to clear terminal screen
 alias cls="clear"
