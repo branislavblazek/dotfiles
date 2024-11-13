@@ -4,6 +4,9 @@ alias git-s="git status"
 # print current branch name
 alias git-b="git branch --show-current | tr -d '\n'"
 
+# Download all new data
+alias git-l="git pull"
+
 # Checkout to dev branch
 alias git-cd="git checkout dev"
 
