@@ -31,3 +31,18 @@ chmod +x install.sh
 ## Doc
 
 Every alias and every bin file has it's own documentation in it's file.
+
+## Edit
+
+### Edit of aliases
+
+Just edit alias, save file and reload terminal.
+
+### Edit of bin/* files
+
+Edit and save file. And do this changes:
+```bash
+cd ~/dotfiles
+./script/install
+chmod +x ./bin/name_of_new_file
+```

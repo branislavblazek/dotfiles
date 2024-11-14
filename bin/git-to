@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+#
+# > git-to name_of_branch
+
+if [ -z "$1" ]; then
+        echo "Please enter name of branch."
+	exit 1
+fi
+
+# save current param as query
+query="$1"
+
+# get all branches (local and remote) which names includes query
+branches=$(git for-each-ref --format='%(refname:short) %(objectname)' | grep "$query")
+
+# count them
+branch_count=$(echo "$branches" | wc -l)
+
+if [ "$branch_count" -eq 1 ]; then
+	# there is only one branch
+	# extract full name of branch
+	branch_name=$(echo "$branches" | awk '{print $1}')
+	
+	# checkout to that branch
+	git checkout "$branch_name"
+elif [ "$branch_count" -gt 1 ]; then
+	# there are more branches
+	# check if thiers hash is same
+	unique_hashes=$(echo "$branches" | awk '{print $2}' | sort | uniq | wc -l)
+	
+	if [ "$unique_hashes" -eq 1 ]; then
+	    # hash is same
+       	    	
+	    # extract full name of branch
+            branch_name=$(echo "$branches" | awk '{print $1}' | head -n 1)
+            
+	    # checkout to that branch
+	    git checkout "$branch_name"
+        else
+            echo "Našlo sa viac vetiev, ale s rôznymi commit hashmi. Nebude sa prepínať."
+        fi
+	
+else
+	# create new branch if not exists
+	git checkout -b "$query"
+fi
