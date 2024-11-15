@@ -14,7 +14,11 @@ query="$1"
 branches=$(git for-each-ref --format='%(refname:short) %(objectname)' | grep "$query")
 
 # count them
-branch_count=$(echo "$branches" | wc -l)
+if [ -z "$branches" ]; then
+    branch_count=0
+else	 
+    branch_count=$(echo "$branches" | wc -l)
+fi
 
 if [ "$branch_count" -eq 1 ]; then
 	# there is only one branch
