@@ -1,6 +1,0 @@
-# Neovim open
-alias nvim="/Users/branislav/nvim-macos-arm64/bin/nvim"
-
-# Tailscale, can be used with flag: [up, down, status]
-alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
-

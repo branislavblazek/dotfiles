@@ -1,4 +1,17 @@
+# put mac into sleep
 alias mac-slp="osascript -e 'tell application \"Finder\" to sleep'"
 
-alias ip='ifconfig | grep 192.168.0 | awk "{print \$2}"'
+# show all local IP's
+alias ip='ifconfig | grep 192.168. | awk "{print \$2}"'
 
+# shorthand for copy into clipboard
+alias cb="pbcopy"
+
+# simple cls to clear terminal screen
+alias cls="clear"
+
+# Neovim open
+alias nvim="/Users/branislav/nvim-macos-arm64/bin/nvim"
+
+# Tailscale, can be used with flag: [up, down, status]
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
