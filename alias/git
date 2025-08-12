@@ -17,14 +17,16 @@ alias gcb="git checkout -b"
 alias grbd="git rebase dev"
 
 # Continue in rebasing
-alias git-rbc="git rebase --continue"
-alias grbc="git-rbc"
+alias grbc="git rebase --continue"
 
 # Abort current rebase
 alias grba="git rebase --abort"
 
 # Push force
 alias gpf="git push -f"
+
+# Push normal
+alias gp="git push"
 
 # Delete all local branches except "dev"
 alias gn="git branch | grep -v \"dev\" | xargs git branch -D"
