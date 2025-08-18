@@ -8,8 +8,5 @@ alias fridir="cd ~/Documents/Code/fri-uniza-laravel"
 # Start this docker
 alias friup="fridir && docker compose up -d"
 
-# Stop this docker
-alias fristop="docker ps --filter name=\"portal-fri-*\" --filter status=runn    ing -aq | xargs docker stop"
-
 # Start web server
 alias fridev="docker exec -it portal-fri-app /bin/bash -c \"npm run dev\""
