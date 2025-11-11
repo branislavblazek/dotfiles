@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-#
-# > calc "5/2"
-# python3 calculator (alt to EXPR)
-python3 -c "print($*)"

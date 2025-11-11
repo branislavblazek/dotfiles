@@ -7,11 +7,14 @@ alias gb="git branch --show-current | tr -d '\n'"
 # Download all new data
 alias gl="git pull"
 
-# Checkout to dev branch
-alias gcd="git checkout dev"
+# Switch to dev branch
+alias gcd="git switch dev"
 
-# Checkout to new branch
-alias gcb="git checkout -b"
+# Switch to new branch
+alias gcb="git switch -c"
+
+# Switch to last branch
+alias gc-="git switch -"
 
 # Rebase current branch agains dev
 alias grbd="git rebase dev"

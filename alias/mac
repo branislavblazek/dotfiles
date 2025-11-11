@@ -15,3 +15,19 @@ alias nvim="/Users/branislav/nvim-macos-arm64/bin/nvim"
 
 # Tailscale, can be used with flag: [up, down, status]
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
+# list command
+alias ls="ls -lGh"
+alias ll='ls -lGh'
+alias la='ls -lGah'
+alias l='ls -Gh'
+
+# mkdir && cd
+mkcd() {
+  mkdir -p "$1" && cd "$1" || return
+}
+
+# calculator
+calc() {
+  python3 -c "print($*)" 2>/dev/null
+}
