@@ -1,12 +1,2 @@
-# Stop all running Docker containers
-docker-stop() {
-  local containers
-  containers=$(docker ps -q)
-
-  if [ -n "$containers" ]; then
-    docker stop $containers
-  fi
-}
-
 # List active Docker images in format
 alias docker-ps="docker ps --format '{{.ID}} {{.Names}}'"

@@ -3,7 +3,7 @@
 alias frios2="ssh blazek10@frios2.fri.uniza.sk -p 10022"
 
 # Change directory to school project
-alias fridir="cd ~/Documents/Code/fri-uniza-laravel"
+alias cd-fri="cd ~/Documents/Code/fri-uniza-laravel"
 
 # Start this docker
 alias friup="fridir && docker compose up -d"
