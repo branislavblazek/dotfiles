@@ -20,7 +20,7 @@ alias docker-sm-start="docker start clonedb_db_1 kratos"
 alias docker-sm-stop="docker stop clonedb_db_1 kratos"
 
 # Softmedic project - show status
-alias docker-sm-status="docker ps -a --filter 'name=clonedb_db_1' --filter 'name=kratos' --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
+alias docker-sm-status="docker ps -a --filter 'name=clonedb_db_1' --filter 'name=kratos' --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}' | grep -v 'sz_'"
 
 # FRI project - start main services
 alias docker-fri-start="docker start portal-fri-app portal-fri-vite portal-fri-db portal-fri-nginx portal-fri-adminer portal-fri-phpmyadmin"
