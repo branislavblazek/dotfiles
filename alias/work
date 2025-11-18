@@ -2,4 +2,7 @@
 alias cd-sz="cd ~/Documents/Code/PaP/SietZdravia"
 
 # Softmedic dir
-alias cd-sf="cd ~/Documents/Code/PaP/SoftMedic"
+alias cd-sm="cd ~/Documents/Code/PaP/SoftMedic"
+
+# FRI dir
+alias cd-fri="cd ~/Documents/Code/fri-uniza-laravel"

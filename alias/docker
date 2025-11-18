@@ -1,2 +1,32 @@
 # List active Docker images in format
 alias docker-ps="docker ps --format '{{.ID}} {{.Names}}'"
+
+# Stop all running Docker containers
+alias docker-stop="docker stop \$(docker ps -q)"
+
+# SietZdravia project - start all services (uses existing containers)
+alias docker-sz-start="docker start sietzdravia-postgres-1 sz_kratos-kratos-migrate-1 sz_kratos-mailslurper-1 sz_kratos-kratos-1"
+
+# SietZdravia project - stop all services
+alias docker-sz-stop="docker stop sietzdravia-postgres-1 sz_kratos-kratos-1 sz_kratos-mailslurper-1"
+
+# SietZdravia project - show status
+alias docker-sz-status="docker ps -a --filter 'name=sietzdravia-postgres' --filter 'name=sz_kratos' --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
+
+# Softmedic project - start clonedb and kratos services
+alias docker-sm-start="docker start clonedb_db_1 kratos"
+
+# Softmedic project - stop clonedb and kratos services
+alias docker-sm-stop="docker stop clonedb_db_1 kratos"
+
+# Softmedic project - show status
+alias docker-sm-status="docker ps -a --filter 'name=clonedb_db_1' --filter 'name=kratos' --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
+
+# FRI project - start main services
+alias docker-fri-start="docker start portal-fri-app portal-fri-vite portal-fri-db portal-fri-nginx portal-fri-adminer portal-fri-phpmyadmin"
+
+# FRI project - stop main services
+alias docker-fri-stop="docker stop portal-fri-app portal-fri-vite portal-fri-db portal-fri-nginx portal-fri-adminer portal-fri-phpmyadmin"
+
+# FRI project - show status
+alias docker-fri-status="docker ps -a --filter 'name=portal-fri' --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
