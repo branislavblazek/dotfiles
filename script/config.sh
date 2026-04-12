@@ -4,7 +4,7 @@ cd "$(dirname "$0")/.."
 export DOTFILES_DIR=$(pwd -P)
 
 # where aliases are located
-export ALIAS_DIR="$DOTFILES_DIR/script/alias.sh"
+export ALIAS_DIR="$DOTFILES_DIR/aliases"
 
 # which file to update
 export CONFIG_FILE=""

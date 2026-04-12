@@ -1,18 +1,25 @@
 # dotfiles
 
+Plain zsh config for macOS Terminal. No oh-my-zsh, no iTerm2.
+
+## Prerequisites
+
+```bash
+brew install zsh-syntax-highlighting zsh-autosuggestions
+```
+
 ## Install
 
-It's recommended to git clone this repo into `~/dotfiles`.
-There are 2 options how to install them into system:
+Git clone this repo into `~/dotfiles`.
 
-1. link whole `.zshrc` file (recommended):
+**Option 1** - link whole `.zshrc` file (recommended):
 
 ```bash
 mv ~/.zshrc ~/.zshrc.backup
 ln -s ~/dotfiles/.zshrc ~/.zshrc
 ```
 
-2. append to your's `.zshrc`
+**Option 2** - append to your `.zshrc`:
 
 ```bash
 cd ~/dotfiles/script
@@ -22,27 +29,30 @@ chmod +x install.sh
 
 ## Post install
 
-1. <b>Reload terminal:</b>
-   Just simply close and open terminal, now it should load all aliases and bin files.
-   Or run command `source ~/.zshrc`.
+1. Reload terminal: close and open Terminal, or run `source ~/.zshrc`
+2. Verify PATH: `echo $PATH` should contain `/Users/branislav/bin`
 
-2. <b>Make sure you have correct $PATH:</b> run `echo $PATH` and there sould be `/Users/branislav/bin:`
+## Structure
 
-## Doc
-
-Every alias and every bin file has it's own documentation in it's file.
+```
+.zshrc          - main config (prompt, history, completion, plugins)
+alias/          - alias files (docker, git, mac, school, work)
+bin/            - custom scripts (symlinked to ~/bin)
+script/         - install and helper scripts
+```
 
 ## Edit
 
-### Edit of aliases
+### Aliases
 
-Just edit alias, save file and reload terminal.
+Edit file in `alias/`, save and reload terminal (`source ~/.zshrc`).
 
-### Edit of bin/* files
+### bin/* scripts
 
-Edit and save file. And do this changes:
+Edit and save file, then:
+
 ```bash
 cd ~/dotfiles
-./script/install
+./script/install.sh
 chmod +x ./bin/name_of_new_file
 ```

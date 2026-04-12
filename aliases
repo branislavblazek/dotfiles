@@ -1,0 +1,116 @@
+# ── Git ──
+
+# print current git status info
+alias gs="git status"
+
+# print current branch name
+alias gb="git branch --show-current | tr -d '\n'"
+
+# Download all new data
+alias gl="git pull"
+
+# Switch to dev branch
+alias gcd="git switch dev"
+
+# Switch to new branch
+alias gcb="git switch -c"
+
+# Switch to last branch
+alias gc-="git switch -"
+
+# Rebase current branch agains dev
+alias grbd="git rebase dev"
+
+# Continue in rebasing
+alias grbc="git rebase --continue"
+
+# Abort current rebase
+alias grba="git rebase --abort"
+
+# Push force
+alias gpf="git push -f"
+
+# Push normal
+alias gp="git push"
+
+# Delete all local branches except "dev"
+alias gn="git branch | grep -v \"dev\" | xargs git branch -D"
+
+# ── Docker ──
+
+# List active Docker images in format
+alias docker-ps="docker ps --format '{{.ID}} {{.Names}}'"
+
+# Stop all running Docker containers
+alias docker-stop="docker stop \$(docker ps -q)"
+
+# SietZdravia project - start all services (uses existing containers)
+alias docker-sz-start="docker start sietzdravia-postgres-1 sz_kratos-kratos-migrate-1 sz_kratos-mailslurper-1 sz_kratos-kratos-1"
+
+# SietZdravia project - stop all services
+alias docker-sz-stop="docker stop sietzdravia-postgres-1 sz_kratos-kratos-1 sz_kratos-mailslurper-1"
+
+# SietZdravia project - show status
+alias docker-sz-status="docker ps -a --filter 'name=sietzdravia-postgres' --filter 'name=sz_kratos' --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
+
+# Softmedic project - start clonedb and kratos services
+alias docker-sm-start="docker start clonedb_db_1 kratos-kratos-1 kratos-mailslurper-1 kratos-kratos-selfservice-ui-node-1"
+
+# Softmedic project - stop clonedb and kratos services
+alias docker-sm-stop="docker stop clonedb_db_1 kratos-kratos-1 kratos-mailslurper-1 kratos-kratos-selfservice-ui-node-1"
+
+# Softmedic project - show status
+alias docker-sm-status="docker ps -a --filter 'name=clonedb_db_1' --filter 'name=kratos' --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}' | grep -v 'sz_'"
+
+# FRI project - start main services
+alias docker-fri-start="docker start portal-fri-app portal-fri-vite portal-fri-db portal-fri-nginx portal-fri-adminer portal-fri-phpmyadmin portal-fri-mailpit portal-fri-redis portal-fri-horizon"
+
+# FRI project - stop main services
+alias docker-fri-stop="docker stop portal-fri-app portal-fri-vite portal-fri-db portal-fri-nginx portal-fri-adminer portal-fri-phpmyadmin portal-fri-mailpit portal-fri-redis portal-fri-horizon"
+
+# FRI project - show status
+alias docker-fri-status="docker ps -a --filter 'name=portal-fri' --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
+
+# ── Mac ──
+
+# put mac into sleep
+alias mac-slp="osascript -e 'tell application \"Finder\" to sleep'"
+
+# show all local IP's
+alias ip='ifconfig | grep 192.168. | awk "{print \$2}"'
+
+# shorthand for copy into clipboard
+alias cb="pbcopy"
+
+# simple cls to clear terminal screen
+alias cls="clear"
+
+# Neovim open
+alias nvim="/Users/branislav/nvim-macos-arm64/bin/nvim"
+
+# Tailscale, can be used with flag: [up, down, status]
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
+# list command
+alias ls="ls -lGh"
+alias ll='ls -lGh'
+alias la='ls -lGah'
+alias l='ls -Gh'
+
+# mkdir && cd
+mkcd() {
+  mkdir -p "$1" && cd "$1" || return
+}
+
+# calculator
+calc() {
+  python3 -c "print($*)" 2>/dev/null
+}
+
+# ── Work ──
+
+# Change directory to SietZdravia
+alias cd-sz="cd ~/Documents/Code/PaP/SietZdravia"
+
+# Change directory to Softmedic
+alias cd-sm="cd ~/Documents/Code/PaP/SoftMedic"
