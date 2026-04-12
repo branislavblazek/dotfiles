@@ -1,8 +1,0 @@
-# Change directory to project's dir.
-alias cd-sz="cd ~/Documents/Code/PaP/SietZdravia"
-
-# Softmedic dir
-alias cd-sm="cd ~/Documents/Code/PaP/SoftMedic"
-
-# FRI dir
-alias cd-fri="cd ~/Documents/Code/fri-uniza-laravel"
