@@ -1,3 +1,5 @@
+clear
+
 export PATH="/Users/branislav/bin:/Users/branislav/.local/bin:$PATH"
 
 if [ -f "/Users/branislav/dotfiles/aliases" ]; then
@@ -26,7 +28,7 @@ export NVM_DIR="$HOME/.nvm"
 # Basic prompt
 # PROMPT='%n [%~] %# '
 # Colorful prompt
-PROMPT='%F{cyan}%n%f [%F{yellow}%~%f] %# '
+PROMPT='%F{cyan}%n%f [%F{yellow}%~%f] $ '
 
 export LANG=sk_SK.UTF-8
 export LC_ALL=sk_SK.UTF-8
