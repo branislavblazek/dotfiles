@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# 1. Vyčistenie systémových a aplikačných vyrovnávacích pamätí
+rm -rf ~/Library/Caches/*
+
+# 2. Univerzálna zložka .cache (využívaná mnohými CLI nástrojmi)
+rm -rf ~/.cache/*
+
+# 3. Vyčistenie systémových logov (bezpečné, uvoľní miesto)
+rm -rf ~/Library/Logs/*
+
+# 4. Prehliadače (Safari a Brave Cache)2
+rm -rf ~/Library/Containers/com.apple.Safari/Data/Library/Caches/*
+rm -rf "$HOME/Library/Application Support/BraveSoftware/Brave-Browser/Default/Service Worker/CacheStorage"
+
+# 5. Microsoft Teams (LEN cache, ponechá prihlásenie a dáta)
+rm -rf ~/Library/Containers/com.microsoft.teams2/Data/Library/Caches/*
+rm -rf "$HOME/Library/Group Containers/UBF8T346G9.com.microsoft.teams/Library/Caches/*"
+
+# 6. WhatsApp (Cache a Média - fotky/videá/hlasovky)
+rm -rf ~/Library/Containers/net.whatsapp.WhatsApp/Data/Library/Caches/*
+rm -rf "$HOME/Library/Group Containers/group.net.whatsapp.family/Message/Media/"*
+
+# 7. Vývojárske nástroje (NPM a Composer)
+npm cache clean --force
+composer clear-cache
+
+# 8. Vyprázdnenie (nie zmazanie) Laravel logu v projekte
+> ~/Documents/Code/fri-uniza-laravel/storage/logs/laravel.log
+
+# 9. Okamžité vysypanie systémového koša
+rm -rf ~/.Trash/*
+
+echo "Done"

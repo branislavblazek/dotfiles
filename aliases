@@ -53,6 +53,11 @@ alias docker-sz-stop="docker stop sietzdravia-postgres-1 sz_kratos-kratos-1 sz_k
 # SietZdravia project - show status
 alias docker-sz-status="docker ps -a --filter 'name=sietzdravia-postgres' --filter 'name=sz_kratos' --format 'table {{.Names}}\t{{.Status}}\t{{.Ports}}'"
 
+# SietZdravia project - database connection
+docker-sz-db() {                                                      
+    docker exec -i sietzdravia-postgres-1 psql -U postgres -d postgres "$@"
+} 
+
 # Softmedic project - start clonedb and kratos services
 alias docker-sm-start="docker start clonedb_db_1 kratos-kratos-1 kratos-mailslurper-1 kratos-kratos-selfservice-ui-node-1"
 
